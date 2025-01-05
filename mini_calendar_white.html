@@ -145,7 +145,7 @@ function CalendarControl() {
   const calendar = new Date();
   const calendarControl = {
     localDate: new Date(),
-    calWeekDays: ["Sun", "Tue", "Wed", "Thu", "Fri", "Sat", "Mon"],
+    calWeekDays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     calMonthName: [
       "Jan",
       "Feb",
@@ -170,7 +170,8 @@ function CalendarControl() {
       return new Date(calendar.getFullYear(), calendar.getMonth() + 1, 0);
     },
     firstDayNumber: function() {
-      return calendarControl.firstDay().getDay() + 1;
+      let firstDay = calendarControl.firstDay().getDay();
+      return firstDay === 0 ? 7 : firstDay;
     },
     lastDayNumber: function() {
       return calendarControl.lastDay().getDay() + 1;
